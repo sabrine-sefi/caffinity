@@ -1,0 +1,15 @@
+{
+  "brand": {
+    "name": "Caffinity",
+    "logoAlt": "Logo de Caffinity"
+  },
+
+  "nav": {
+    "language": "Selector de idioma"
+  },
+
+  "a11y": {
+    "labelPrincipal": "Navegación principal",
+    "langChange": "Idioma cambiado a español"
+  }
+}
