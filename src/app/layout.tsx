@@ -2,9 +2,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "caffinitY",
+  title: "CaffinitY",
   description: "Small coffee-gear shop built with Next.js + TypeScript",
-  
 };
 
 export default function RootLayout({
@@ -14,9 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
