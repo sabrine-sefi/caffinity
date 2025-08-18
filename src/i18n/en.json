@@ -8,6 +8,9 @@
   },
   "a11y": {
     "labelPrincipal": "Main navigation",
-    "langChange": "Language changed to English"
+    "langChange": "Language changed to English",
+    "switchTheme": "Change theme",
+    "switchDark": "Enable dark mode",
+    "switchLight": "Enable light mode"
   }
 }

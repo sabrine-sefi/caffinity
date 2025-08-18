@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useLocale } from "../../../../i18n/LocaleProvider";
-import { tokens } from "../../../../styles/tokens";
+import { toUppFirst } from "../../../../../Utils";
 
 export default function LanguageList({
   langues,
@@ -13,15 +13,31 @@ export default function LanguageList({
 }) {
   const { setLocale } = useLocale();
 
-  //pour forcer font and color (tokens) => to fix: tailwind!
-  const fontStyle = {
-    fontFamily: tokens.font.content,
+  // style liste DS
+  const listStyle: React.CSSProperties = {
+    fontFamily: "var(--font-sans), system-ui, sans-serif",
+    minWidth: "70px",
+    zIndex: 9,
+    boxShadow: "0 2px 4px rgba(0,0,0,0.15)",
+    backgroundColor: "var(--bg)",
   };
+
+  // style bouton DS
+  const buttonStyle: React.CSSProperties = {
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
+    padding: "8px",
+    cursor: "pointer",
+    color: "var(--text)",
+    textDecorationColor: "var(--primary)",
+  };
+
   return (
     <ul
       role="listbox" // a11y: annoncer que c’est une liste d’options
-      style={fontStyle}
-      className="absolute right-0 mt-2 w-40 rounded-md bg-white text-sm drop-shadow-[2px_2px_4px_rgba(0,0,0,0.3)]"
+      style={listStyle}
+      className="surface absolute right-0 mt-1 text-sm rounded-lg"
     >
       {langues.map((langue) => (
         <li key={langue.code}>
@@ -30,7 +46,8 @@ export default function LanguageList({
             role="option"
             aria-selected={false}
             lang={langue.code} // tag HTML "lang" => a11y pour lecteur d'écran
-            className="w-full flex items-center gap-2 px-3 py-2"
+            style={buttonStyle}
+            className="hover-primary"
             onClick={() => {
               // on change la langue avec le setLocale
               setLocale(langue.code as any);
@@ -43,9 +60,9 @@ export default function LanguageList({
               alt=""
               width={512}
               height={512}
-              className="h-6 w-6"
+              className="h-5 w-5"
             />
-            <span>{langue.label}</span>
+            <span className="hover-primary">{toUppFirst(langue.code)}</span>
           </button>
         </li>
       ))}

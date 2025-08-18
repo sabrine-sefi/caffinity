@@ -10,6 +10,9 @@
 
   "a11y": {
     "labelPrincipal": "Navigation principale",
-    "langChange": "Langue changée en français"
+    "langChange": "Langue changée en français",
+    "switchTheme": "Changer le thème",
+    "switchDark": "Activer le mode sombre",
+    "switchLight": "Activer le mode clair"
   }
 }

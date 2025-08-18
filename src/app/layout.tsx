@@ -1,7 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import Navbar from "../components/ui/Navbar";
+import { ThemeProvider } from "next-themes";
+import Navbar from "../components/ui/header/Navbar";
 import { Livvic, Poppins, Parisienne } from "next/font/google";
+import LocaleProvider from "../i18n/LocaleProvider";
 
 export const metadata: Metadata = {
   title: "CaffinitY",
@@ -27,6 +29,7 @@ const parisienne = Parisienne({
   weight: ["400"],
   variable: "--font-second",
 });
+
 export default function RootLayout({
   children,
 }: {
@@ -34,11 +37,29 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
+      lang="fr"
       className={`${poppins.variable} ${livvic.variable} ${parisienne.variable}`}
+      suppressHydrationWarning // fix hydrating error a cause du theme (coté client et layout cote serveur)
     >
-      <Navbar />
-      <body>{children}</body>
+      <body>
+        {/* config a11y pour annoncer le changement de langue */}
+        <div
+          id="live-region"
+          aria-live="polite"
+          aria-atomic="true"
+          className="sr-only"
+        />
+        <LocaleProvider>
+          <ThemeProvider
+            attribute="data-theme"
+            defaultTheme="system"
+            enableSystem={true}
+          >
+            <Navbar />
+            <main>{children}</main>
+          </ThemeProvider>
+        </LocaleProvider>
+      </body>
     </html>
   );
 }

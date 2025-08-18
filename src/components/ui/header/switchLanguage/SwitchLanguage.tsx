@@ -4,7 +4,8 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useLocale } from "../../../../i18n/LocaleProvider";
 import { t } from "../../../../i18n/i18n";
-import { tokens } from "../../../../styles/tokens";
+import { toUppFirst } from "../../../../../Utils";
+
 import LanguageList from "./LanguageList";
 
 export default function SwitchLanguage() {
@@ -51,21 +52,30 @@ export default function SwitchLanguage() {
   // exp: si current = "fr", others = [en, es]
   const others = langs.filter((l) => l.code !== current.code);
 
-  // forcer font : to fix pour utiliser front tailwind!
-  const fontStyle = {
-    fontFamily: tokens.font.content,
+  // style bouton DS
+  const buttonStyle: React.CSSProperties = {
+    fontFamily: "var(--font-sans), system-ui, sans-serif",
+    color: "var(--text)",
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
+    padding: "8px 16px",
+    fontSize: "0.875rem",
+    borderRadius: "8px",
+    cursor: "pointer",
+    textDecorationColor: "var(--primary)",
   };
 
   return (
-    <div ref={rootRef} className="relative">
+    <div ref={rootRef} style={{ position: "relative" }}>
       <button
         type="button"
         onClick={() => setOpen((ev) => !ev)}
         aria-haspopup="listbox" // a11y => ce bouton ouvre une liste
         aria-expanded={open} // a11y => dit si la liste est ouverte ou fermée
         aria-label={`${t(locale, "nav.language")}: ${current.label}`}
-        className="bg-surface flex items-center gap-2 py-1.5 px-2.5 text-sm"
-        style={fontStyle}
+        style={buttonStyle}
+        className="focus-ring"
       >
         <span aria-hidden="true">
           <Image
@@ -73,10 +83,10 @@ export default function SwitchLanguage() {
             alt=""
             width={512}
             height={512}
-            className="h-6 w-6"
+            className="h-5 w-5"
           />
         </span>
-        <span>{current.label}</span>
+        <span className="hover-primary">{toUppFirst(current.code)}</span>
       </button>
       {open && (
         <LanguageList langues={others} closeList={() => setOpen(false)} />
