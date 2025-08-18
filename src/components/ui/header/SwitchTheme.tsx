@@ -30,14 +30,14 @@ export default function SwitchTheme() {
         alt=""
         width={512}
         height={512}
-        className="h-5 w-5 icon-go-dark"
+        className="h-4 w-4 icon-go-dark"
       />
       <Image
         src="/light.png"
         alt=""
         width={512}
         height={512}
-        className="h-5 w-5 icon-go-light"
+        className="h-4 w-4 icon-go-light"
       />
     </button>
   );
