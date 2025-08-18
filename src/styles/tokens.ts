@@ -18,18 +18,18 @@ export const tokens: {
   font: Fonts;
 } = {
   light: {
-    bg: "#FAF7F2",
-    text: "#0b1320",
-    primary: "#955D3B",
-    border: "#D9D9D9",
-    focus: "#2563eb",
+    bg: "var(--bg)",
+    text: "var(--text)",
+    primary: "var(--primary)",
+    border: "var(--border)",
+    focus: "var(--focus)",
   },
   dark: {
-    bg: "#0E0D0C",
-    text: "#FAF7F2",
-    primary: "#AC6B44",
-    border: "#2c2c2c",
-    focus: "#60a5fa",
+    bg: "var(--bg)",
+    text: "var(--text)",
+    primary: "var(--primary)",
+    border: "var(--border)",
+    focus: "var(--focus)",
   },
   font: {
     content: "var(--font-sans)", // Poppins
