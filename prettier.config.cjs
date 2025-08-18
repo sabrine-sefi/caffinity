@@ -1,5 +1,5 @@
 /** @type {import("prettier").Config} */
-const config = {
+module.exports = {
   semi: true, // ajoute toujours un point-virgule
   singleQuote: false, // utilise les guillemets doubles ("")
   trailingComma: "es5", // ajoute des virgules de fin où c’est valide (objets, arrays, etc.)
@@ -10,5 +10,3 @@ const config = {
   printWidth: 100, // longueur max par ligne (wrap auto si plus long)
   endOfLine: "lf", // force les fins de lignes en LF (Linux/macOS standard)
 };
-
-export default config;

@@ -3,25 +3,23 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Light (par défaut) */
 :root {
-  --bg: #faf7f2; /* crème chaude */
-  --text: #0e0d0c; /* charcoal chaud */
-  --surface: #f9f9f9; /* surface cartes */
-  --border: #e5e5e5; /* séparateurs light */
-  --primary: #955d3b; /* café (brand) */
+  --bg: #faf7f2;
+  --text: #0e0d0c;
+  --surface: #f9f9f9;
+  --border: #e5e5e5;
+  --primary: #955d3b;
   --bg-90: rgba(250, 247, 242, 0.8);
   --border-60: rgba(229, 229, 229, 0.6);
   --focus: #2563eb;
 }
 
-/* Dark */
 [data-theme="dark"] {
-  --bg: #0e0d0c; /* fond dark */
-  --text: #faf7f2; /* texte clair */
-  --surface: #1c1c1c; /* surface cartes */
-  --border: #313131; /* séparateurs dark */
-  --primary: #955d3b; /* café (brand) */
+  --bg: #0e0d0c;
+  --text: #faf7f2;
+  --surface: #1c1c1c;
+  --border: #313131;
+  --primary: #955d3b;
   --bg-90: rgba(14, 13, 12, 0.8);
   --border-60: rgba(49, 49, 49, 0.6);
   --focus: #2563eb;
@@ -63,6 +61,13 @@ img {
   border-bottom: 1px solid var(--border-60);
 }
 
+.glass-footer {
+  background-color: var(--bg-90);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid var(--border-60);
+}
+
 .surface {
   background-color: var(--surface);
   border: 1px solid var(--border);
@@ -78,6 +83,7 @@ img {
   text-decoration: underline;
   text-decoration-color: var(--primary);
 }
+
 .icon-go-dark {
   display: inline-block;
 }
@@ -85,13 +91,13 @@ img {
   display: none;
 }
 
-/* afficher soit light soit dark */
 [data-theme="dark"] .icon-go-dark {
   display: none;
 }
 [data-theme="dark"] .icon-go-light {
   display: inline-block;
 }
+
 .focus-ring {
   cursor: pointer;
 }

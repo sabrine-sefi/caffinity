@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 import Navbar from "../components/ui/header/Navbar";
 import { Livvic, Poppins, Parisienne } from "next/font/google";
 import LocaleProvider from "../i18n/LocaleProvider";
+import Footer from "@/components/ui/footer/Footer";
 
 export const metadata: Metadata = {
   title: "CaffinitY",
@@ -30,33 +31,21 @@ const parisienne = Parisienne({
   variable: "--font-second",
 });
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="fr"
       className={`${poppins.variable} ${livvic.variable} ${parisienne.variable}`}
       suppressHydrationWarning // fix hydrating error a cause du theme (coté client et layout cote serveur)
     >
-      <body>
+      <body className="flex flex-col min-h-screen bg-[var(--background)] text-[var(--text)]">
         {/* config a11y pour annoncer le changement de langue */}
-        <div
-          id="live-region"
-          aria-live="polite"
-          aria-atomic="true"
-          className="sr-only"
-        />
+        <div id="live-region" aria-live="polite" aria-atomic="true" className="sr-only" />
         <LocaleProvider>
-          <ThemeProvider
-            attribute="data-theme"
-            defaultTheme="system"
-            enableSystem={true}
-          >
+          <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem={true}>
             <Navbar />
-            <main>{children}</main>
+            <main className="flex-1 flex flex-col min-h-screen">{children}</main>
+            <Footer />
           </ThemeProvider>
         </LocaleProvider>
       </body>

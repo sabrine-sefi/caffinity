@@ -78,19 +78,11 @@ export default function SwitchLanguage() {
         className="focus-ring"
       >
         <span aria-hidden="true">
-          <Image
-            src={current.flag}
-            alt=""
-            width={512}
-            height={512}
-            className="h-5 w-5"
-          />
+          <Image src={current.flag} alt="" width={512} height={512} className="h-5 w-5" />
         </span>
         <span className="hover-primary">{toUppFirst(current.code)}</span>
       </button>
-      {open && (
-        <LanguageList langues={others} closeList={() => setOpen(false)} />
-      )}
+      {open && <LanguageList langues={others} closeList={() => setOpen(false)} />}
     </div>
   );
 }

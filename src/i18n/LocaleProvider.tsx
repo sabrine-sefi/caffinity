@@ -19,17 +19,12 @@ const LocaleContext = createContext<{
 // hook pour éviter de répéter useContext(LocaleContext) partout!!
 export function useLocale() {
   const context = useContext(LocaleContext);
-  if (!context)
-    throw new Error("useLocale doit être utilisé dans un LocaleProvider");
+  if (!context) throw new Error("useLocale doit être utilisé dans un LocaleProvider");
   return context;
 }
 
 // LocaleProvider => entourer toute l’app + donne acces à ln actuelle + function pour changer
-export default function LocaleProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function LocaleProvider({ children }: { children: React.ReactNode }) {
   // je stocke la langue actuelle
   const [locale, setLocale] = useState<Locale>(defaultLocale);
 

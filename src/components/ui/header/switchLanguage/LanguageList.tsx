@@ -55,13 +55,7 @@ export default function LanguageList({
               closeList();
             }}
           >
-            <Image
-              src={langue.flag}
-              alt=""
-              width={512}
-              height={512}
-              className="h-5 w-5"
-            />
+            <Image src={langue.flag} alt="" width={512} height={512} className="h-5 w-5" />
             <span className="hover-primary">{toUppFirst(langue.code)}</span>
           </button>
         </li>

@@ -3,9 +3,21 @@
     "name": "Caffinity",
     "logoAlt": "Logo de Caffinity"
   },
-
+  "home": {
+    "home": "Inicio"
+  },
+  "cart": {
+    "cart": "Carrito"
+  },
   "nav": {
-    "language": "Selector de idioma"
+    "language": "Selector de idioma",
+    "about": "Nuestra historia",
+    "products": "Productos",
+    "contact": "Contacto"
+  },
+
+  "footer": {
+    "rights": "Todos los derechos reservados."
   },
 
   "a11y": {
@@ -13,6 +25,7 @@
     "langChange": "Idioma cambiado a español",
     "switchTheme": "Cambiar el tema",
     "switchDark": "Activar el modo oscuro",
-    "switchLight": "Activar el modo claro"
+    "switchLight": "Activar el modo claro",
+    "shoppingBag": "Ir al carrito"
   }
 }

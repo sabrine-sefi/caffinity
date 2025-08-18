@@ -3,14 +3,27 @@
     "name": "Caffinity",
     "logoAlt": "Caffinity logo"
   },
+  "home": {
+    "home": "Home"
+  },
+  "cart": {
+    "cart": "Cart"
+  },
   "nav": {
-    "language": "Language switcher"
+    "language": "Language switcher",
+    "about": "Our Story",
+    "products": "Products",
+    "contact": "Contact"
+  },
+  "footer": {
+    "rights": "All rights reserved."
   },
   "a11y": {
     "labelPrincipal": "Main navigation",
     "langChange": "Language changed to English",
     "switchTheme": "Change theme",
     "switchDark": "Enable dark mode",
-    "switchLight": "Enable light mode"
+    "switchLight": "Enable light mode",
+    "shoppingBag": "Go to cart"
   }
 }

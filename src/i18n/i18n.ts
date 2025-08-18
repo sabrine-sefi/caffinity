@@ -22,11 +22,7 @@ function get(obj: Record<string, any>, path: string) {
     .reduce<any>((acc, part) => (acc ? acc[part] : undefined), obj);
 }
 
-export function t(
-  locale: Locale,
-  key: string,
-  vars?: Record<string, string | number>
-): string {
+export function t(locale: Locale, key: string, vars?: Record<string, string | number>): string {
   // je prends la bonne traduction sinon fr
   const value = get(dict[locale] ?? dict[defaultLocale], key) ?? key;
 
