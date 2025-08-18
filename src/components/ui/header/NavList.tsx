@@ -4,16 +4,20 @@ import Link from "next/link";
 import { useLocale } from "../../../i18n/LocaleProvider";
 import { t } from "../../../i18n/i18n";
 
-export default function NavList() {
+interface NavListProps {
+  burger?: boolean;
+}
+
+export default function NavList({ burger = false }: NavListProps) {
   const { locale } = useLocale();
 
   return (
     <nav aria-label={t(locale, "a11y.mainNavigation")}>
-      <ul className="flex items-center gap-6">
+      <ul className={burger ? "flex flex-col gap-2" : "flex items-center gap-6"}>
         <li>
           <Link
             href="/"
-            className="font-medium text-base transition-colors hover-primary focus-ring"
+            className="font-medium text-base transition-colors hover-primary focus-ring block px-4 py-2"
           >
             {t(locale, "home.home")}
           </Link>
@@ -21,7 +25,7 @@ export default function NavList() {
         <li>
           <Link
             href="/about"
-            className="font-medium text-base transition-colors hover-primary focus-ring"
+            className="font-medium text-base transition-colors hover-primary focus-ring block px-4 py-2"
           >
             {t(locale, "nav.about")}
           </Link>
@@ -29,7 +33,7 @@ export default function NavList() {
         <li>
           <Link
             href="/products"
-            className="font-medium text-base transition-colors hover-primary focus-ring"
+            className="font-medium text-base transition-colors hover-primary focus-ring block px-4 py-2"
           >
             {t(locale, "nav.products")}
           </Link>
@@ -37,7 +41,7 @@ export default function NavList() {
         <li>
           <Link
             href="/contact"
-            className="font-medium text-base transition-colors hover-primary focus-ring"
+            className="font-medium text-base transition-colors hover-primary focus-ring block px-4 py-2"
           >
             {t(locale, "nav.contact")}
           </Link>

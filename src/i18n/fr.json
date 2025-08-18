@@ -25,6 +25,8 @@
     "switchTheme": "Changer le thème",
     "switchDark": "Activer le mode sombre",
     "switchLight": "Activer le mode clair",
-    "shoppingBag": "Aller au panier"
+    "shoppingBag": "Aller au panier",
+    "openBurger": "Ouvrir menu",
+    "closeBurger": "Fermer menu"
   }
 }

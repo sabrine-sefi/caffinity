@@ -24,6 +24,8 @@
     "switchTheme": "Change theme",
     "switchDark": "Enable dark mode",
     "switchLight": "Enable light mode",
-    "shoppingBag": "Go to cart"
+    "shoppingBag": "Go to cart",
+    "openBurger": "Open menu",
+    "closeBurger": "Close menu"
   }
 }

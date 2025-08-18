@@ -2,7 +2,6 @@
 
 import { useLocale } from "../../../i18n/LocaleProvider";
 import { t } from "../../../i18n/i18n";
-import NavList from "../header/NavList";
 
 export default function Footer() {
   const { locale } = useLocale();
@@ -13,9 +12,6 @@ export default function Footer() {
         <p className="text-sm text-gray-500 dark:text-gray-400 text-center md:text-left">
           © {new Date().getFullYear()} CaffinitY. {t(locale, "footer.rights")}
         </p>
-        <div className="mt-4 flex justify-center space-x-8 md:mt-0 md:justify-end">
-          <NavList />
-        </div>
       </div>
     </footer>
   );
