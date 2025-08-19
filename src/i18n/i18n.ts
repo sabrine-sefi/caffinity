@@ -13,13 +13,18 @@ export const locales: Locale[] = ["en", "fr", "es"];
 
 // on regroupe les dictionnaires dans un objet
 // dict["fr"] → { brand: {...}, nav: {...}, ... }
-const dict: Record<Locale, Record<string, any>> = { en, fr, es };
+const dict: Record<Locale, Record<string, unknown>> = { en, fr, es };
 
 // fonction pour lire un chemin style "a.b.c"
-function get(obj: Record<string, any>, path: string) {
+function get(obj: Record<string, unknown>, path: string): unknown {
   return path
     .split(".") // "nav.home" → ["nav","home"]
-    .reduce<any>((acc, part) => (acc ? acc[part] : undefined), obj);
+    .reduce<unknown>((acc, part) => {
+      if (acc && typeof acc === "object" && part in acc) {
+        return (acc as Record<string, unknown>)[part];
+      }
+      return undefined;
+    }, obj);
 }
 
 export function t(locale: Locale, key: string, vars?: Record<string, string | number>): string {
@@ -32,6 +37,6 @@ export function t(locale: Locale, key: string, vars?: Record<string, string | nu
   // si pas de variables => renvoie direct la valeur
   if (!vars) return value;
 
-  // sinon remplace les vars dans le texte => expemple: "Salut {name}" + {name: "Sabrine" } => "Salut Sabrine"
+  // sinon remplace les vars dans le texte => exemple: "Salut {name}" + {name: "Sabrine"} => "Salut Sabrine"
   return value.replace(/\{(\w+)\}/g, (_, k) => String(vars[k] ?? `{${k}}`));
 }

@@ -11,7 +11,6 @@ import LanguageList from "./LanguageList";
 export default function SwitchLanguage() {
   const { locale } = useLocale();
   const [open, setOpen] = useState(false);
-  const [ignoreNextClose, setIgnoreNextClose] = useState(false);
 
   const langs = [
     { code: "fr", label: "Français", flag: "/fr.png" },

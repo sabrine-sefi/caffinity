@@ -4,9 +4,10 @@ import Image from "next/image";
 import { useLocale } from "../../../../i18n/LocaleProvider";
 import { toUppFirst } from "../../../../../Utils";
 import FloatingBox from "@/ds/FloatingBox";
+import type { Locale } from "../../../../i18n/LocaleProvider";
 
 type LanguageListProps = {
-  langues: { code: string; label: string; flag: string }[];
+  langues: { code: Locale; label: string; flag: string }[];
   onClose: () => void;
 };
 
@@ -25,7 +26,7 @@ export default function LanguageList({ langues, onClose }: LanguageListProps) {
               lang={langue.code}
               className="flex items-center justify-start gap-2 p-2 cursor-pointer w-full"
               onClick={() => {
-                setLocale(langue.code as any);
+                setLocale(langue.code);
                 onClose();
               }}
             >

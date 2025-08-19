@@ -5,7 +5,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 // langues dispo dans le site
 // as const => ça fige le tableau: TypeScript sait que soit  "fr" | "en" | "es"
 const locales = ["fr", "en", "es"] as const;
-type Locale = (typeof locales)[number];
+export type Locale = (typeof locales)[number]; // fix any : export type
 
 // valeur par défaut: français
 const defaultLocale: Locale = "fr";
