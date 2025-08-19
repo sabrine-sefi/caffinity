@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { useLocale } from "../../../../i18n/LocaleProvider";
 import { t } from "../../../../i18n/i18n";
 import { toUppFirst } from "../../../../../Utils";
@@ -10,33 +10,8 @@ import LanguageList from "./LanguageList";
 
 export default function SwitchLanguage() {
   const { locale } = useLocale();
-
   const [open, setOpen] = useState(false);
-
-  // ref = pointe sur une div
-  const rootRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    function handleClick(e: MouseEvent) {
-      // Si je clique en dehors de la div avec ref (rootRef) => close
-      if (rootRef.current && !rootRef.current.contains(e.target as Node)) {
-        setOpen(false);
-      }
-    }
-
-    function handleKey(e: KeyboardEvent) {
-      // Si je clique sur Esc => close
-      if (e.key === "Escape") setOpen(false);
-    }
-
-    document.addEventListener("click", handleClick);
-    document.addEventListener("keydown", handleKey);
-
-    return () => {
-      document.removeEventListener("click", handleClick);
-      document.removeEventListener("keydown", handleKey);
-    };
-  }, []);
+  const [ignoreNextClose, setIgnoreNextClose] = useState(false);
 
   const langs = [
     { code: "fr", label: "Français", flag: "/fr.png" },
@@ -44,45 +19,39 @@ export default function SwitchLanguage() {
     { code: "es", label: "Español", flag: "/es.png" },
   ] as const;
 
-  // on cherche dans la liste une langue dont le code === locale
-  // langs[0] => si aucune langue choisie donc 1ere langue de la liste
   const current = langs.find((l) => l.code === locale) ?? langs[0];
-
-  // others = toutes les autres langues à afficher dans la liste déroulante
-  // exp: si current = "fr", others = [en, es]
   const others = langs.filter((l) => l.code !== current.code);
 
-  // style bouton DS
-  const buttonStyle: React.CSSProperties = {
-    fontFamily: "var(--font-sans), system-ui, sans-serif",
-    color: "var(--text)",
-    display: "flex",
-    alignItems: "center",
-    gap: "8px",
-    padding: "8px 16px",
-    fontSize: "0.875rem",
-    borderRadius: "8px",
-    cursor: "pointer",
-    textDecorationColor: "var(--primary)",
-  };
-
   return (
-    <div ref={rootRef} style={{ position: "relative" }}>
+    <div style={{ position: "relative" }}>
       <button
         type="button"
-        onClick={() => setOpen((ev) => !ev)}
-        aria-haspopup="listbox" // a11y => ce bouton ouvre une liste
-        aria-expanded={open} // a11y => dit si la liste est ouverte ou fermée
+        onClick={() => setOpen((prev) => !prev)}
+        aria-haspopup="listbox"
+        aria-expanded={open}
         aria-label={`${t(locale, "nav.language")}: ${current.label}`}
-        style={buttonStyle}
-        className="focus-ring"
+        className="focus-ring flex items-center gap-2 px-4 py-2 text-sm rounded-lg cursor-pointer font-sans text-[var(--text)]"
       >
         <span aria-hidden="true">
-          <Image src={current.flag} alt="" width={512} height={512} className="h-5 w-5" />
+          <Image
+            src={current.flag}
+            alt=""
+            width={512}
+            height={512}
+            className="h-4 w-4 sm:h-5 sm:w-5"
+          />
         </span>
         <span className="hover-primary">{toUppFirst(current.code)}</span>
       </button>
-      {open && <LanguageList langues={others} closeList={() => setOpen(false)} />}
+
+      {open && (
+        <LanguageList
+          langues={others}
+          onClose={() => {
+            setOpen(false);
+          }}
+        />
+      )}
     </div>
   );
 }

@@ -23,9 +23,9 @@ export default function Logo() {
       style={{ textDecoration: "none" }}
       aria-label={t(locale, "brand.logoAlt")}
     >
-      <Image src="/logo.png" alt="" width={512} height={512} className="h-8 w-8 drop-shadow-xl" />
+      <Image src="/logo.png" alt="" width={512} height={512} className="logo-icon drop-shadow-xl" />
       <span
-        className="ml-2 text-2xl font-bold"
+        className="ml-2 font-bold logo-text"
         style={{
           fontFamily: tokens.font.titles,
           color: tokens.light.primary,

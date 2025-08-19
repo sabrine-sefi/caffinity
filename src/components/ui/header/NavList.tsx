@@ -7,9 +7,10 @@ import { t } from "../../../i18n/i18n";
 
 interface NavListProps {
   burger?: boolean;
+  closeBox?: () => void;
 }
 
-export default function NavList({ burger = false }: NavListProps) {
+export default function NavList({ burger = false, closeBox }: NavListProps) {
   const { locale } = useLocale();
   const pathname = usePathname();
 
@@ -26,6 +27,7 @@ export default function NavList({ burger = false }: NavListProps) {
         {navLinks.map(({ href, label }) => (
           <li key={href}>
             <Link
+              onClick={burger && closeBox ? closeBox : undefined}
               href={href}
               style={
                 pathname === href
