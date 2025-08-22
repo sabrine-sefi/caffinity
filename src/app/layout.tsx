@@ -1,10 +1,10 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
-import Navbar from "../components/ui/header/Navbar";
+import Navbar from "../components/layout/header/Navbar";
 import { Livvic, Poppins, Parisienne } from "next/font/google";
 import LocaleProvider from "../i18n/LocaleProvider";
-import Footer from "@/components/ui/footer/Footer";
+import Footer from "@/components/layout/footer/Footer";
 
 export const metadata: Metadata = {
   title: "CaffinitY",

@@ -10,7 +10,7 @@ import Logo from "./logo/Logo";
 import SwitchTheme from "./SwitchTheme";
 import Shopping from "./Shopping";
 import NavList from "./NavList";
-import FloatingBox from "@/ds/FloatingBox";
+import FloatingBox from "@/components/ui/FloatingBox";
 
 export default function Navbar() {
   const { locale } = useLocale();

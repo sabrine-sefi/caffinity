@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useLocale } from "../../../../i18n/LocaleProvider";
 import { toUppFirst } from "../../../../../Utils";
-import FloatingBox from "@/ds/FloatingBox";
+import FloatingBox from "@/components/ui/FloatingBox";
 import type { Locale } from "../../../../i18n/LocaleProvider";
 
 type LanguageListProps = {
