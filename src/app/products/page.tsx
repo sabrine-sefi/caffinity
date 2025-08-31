@@ -23,10 +23,13 @@ type Product = {
 };
 
 export default function ProductsPage() {
+  // current language
   const { locale } = useLocale();
+
   const [products, setProducts] = useState<Product[]>([]);
   const [limit, setLimit] = useState(6);
 
+  // fetch products from API
   useEffect(() => {
     async function fetchProducts() {
       const res = await fetch("/api/products");
@@ -36,6 +39,7 @@ export default function ProductsPage() {
     fetchProducts();
   }, []);
 
+  // get 6 more
   const handleShowMore = () => {
     setLimit((prev) => prev + 6);
   };
@@ -52,7 +56,7 @@ export default function ProductsPage() {
             image={p.image}
             price={p.price}
             currency={p.currency}
-            onAction={() => alert(`Produit ajouté: ${p._id}`)}
+            onAction={() => alert(`Produit ajouté: ${p._id}`)} // to do: add to cart
             actionLabel={t(locale, "cart.add")}
             actionVariant="primary"
           />
