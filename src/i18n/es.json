@@ -8,7 +8,11 @@
   },
   "cart": {
     "cart": "Carrito",
-    "add": "Agregar"
+    "add": "Agregar",
+    "cancel": "Cancelar"
+  },
+  "products": {
+    "showMore": "Ver más"
   },
   "nav": {
     "language": "Selector de idioma",
@@ -16,11 +20,9 @@
     "products": "Productos",
     "contact": "Contacto"
   },
-
   "footer": {
     "rights": "Todos los derechos reservados."
   },
-
   "a11y": {
     "labelPrincipal": "Navegación principal",
     "langChange": "Idioma cambiado a español",
