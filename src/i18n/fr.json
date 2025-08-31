@@ -7,7 +7,12 @@
     "home": "Accueil"
   },
   "cart": {
-    "cart": "Panier"
+    "cart": "Panier",
+    "add": "Ajouter",
+    "cancel": "Annuler"
+  },
+  "products": {
+    "showMore": "Voir plus"
   },
 
   "nav": {

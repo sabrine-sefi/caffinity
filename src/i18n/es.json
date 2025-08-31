@@ -7,7 +7,8 @@
     "home": "Inicio"
   },
   "cart": {
-    "cart": "Carrito"
+    "cart": "Carrito",
+    "add": "Agregar"
   },
   "nav": {
     "language": "Selector de idioma",

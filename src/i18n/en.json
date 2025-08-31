@@ -7,7 +7,12 @@
     "home": "Home"
   },
   "cart": {
-    "cart": "Cart"
+    "cart": "Cart",
+    "add": "Add",
+    "cancel": "Cancel"
+  },
+  "products": {
+    "showMore": "Show more"
   },
   "nav": {
     "language": "Language switcher",
