@@ -30,7 +30,6 @@ export default function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [limit, setLimit] = useState(6);
 
-  // fetch products depuis API
   useEffect(() => {
     async function fetchProducts() {
       const res = await fetch("/api/products");
@@ -45,8 +44,15 @@ export default function ProductsPage() {
   };
 
   return (
-    <div className="flex flex-col items-center flex-1 w-full p-20 gap-8">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl">
+    <div
+      className="flex flex-col items-center flex-1 w-full p-20 gap-8"
+      role="main"
+      aria-label={t(locale, "products.list")} // a11y: annonce la section principale
+    >
+      <div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl"
+        role="list" // a11y: annonce que c'est une liste de produits
+      >
         {Array.isArray(products) &&
           products
             .slice(0, limit)

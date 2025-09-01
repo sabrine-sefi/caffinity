@@ -9,7 +9,9 @@
   "cart": {
     "cart": "Panier",
     "add": "Ajouter",
-    "cancel": "Annuler"
+    "cancel": "Annuler",
+    "empty": "Votre panier est vide",
+    "yourCart": "Votre panier"
   },
   "products": {
     "showMore": "Voir plus"

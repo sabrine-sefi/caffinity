@@ -9,6 +9,7 @@ type ButtonProps = {
   variant?: "primary" | "secondary";
   className?: string;
   type?: "button" | "submit" | "reset";
+  ariaLabel?: string;
 };
 
 export default function Button({
@@ -17,15 +18,17 @@ export default function Button({
   variant = "primary",
   className,
   type = "button",
+  ariaLabel,
 }: ButtonProps) {
   return (
     <button
       type={type}
       onClick={onClick}
+      aria-label={ariaLabel}
       className={clsx(
         "cursor-pointer px-4 py-2 rounded font-medium transition-colors shadow-lg border-[var(--border)] text-[var(--text)]",
         variant === "primary" && "bg-[var(--primary)]",
-        variant === "secondary" && "bg-[var(--surface)] ",
+        variant === "secondary" && "bg-[var(--surface)]",
         className
       )}
     >

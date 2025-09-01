@@ -9,7 +9,9 @@
   "cart": {
     "cart": "Cart",
     "add": "Add",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "empty": "Your cart is empty",
+    "yourCart": "Your cart"
   },
   "products": {
     "showMore": "Show more"

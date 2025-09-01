@@ -9,17 +9,18 @@ export default function PanierPage() {
   const { cart, removeFromCart } = useCart();
 
   return (
-    <div className="flex flex-col items-center justify-center flex-1 w-full p-8 text-center">
-      <h1 className="text-2xl font-semibold mb-6">{t(locale, "cart.cart")}</h1>
+    <div className="flex flex-col flex-1 w-full p-8">
+      <h1 className="text-2xl font-semibold mb-6 text-center">{t(locale, "cart.yourCart")}</h1>
 
       {cart.length === 0 ? (
-        <p>{t(locale, "cart.empty") ?? "Votre panier est vide"}</p>
+        <p className="text-center">{t(locale, "cart.empty")}</p>
       ) : (
-        <ul className="w-full max-w-md space-y-4">
+        <ul className="w-full max-w-md mx-auto space-y-4" role="list">
           {cart.map((item) => (
             <li
               key={item._id}
-              className="flex justify-between items-center border p-4 rounded-lg shadow-sm"
+              role="listitem"
+              className="flex justify-between items-center border p-4 rounded-lg shadow-sm "
             >
               <div className="text-left">
                 <p className="font-medium">{item.name[locale as keyof typeof item.name]}</p>
@@ -30,6 +31,7 @@ export default function PanierPage() {
               <button
                 className="px-3 py-1 bg-red-500 text-white rounded"
                 onClick={() => removeFromCart(item._id)}
+                aria-label={t(locale, "cart.cancel")}
               >
                 {t(locale, "cart.cancel")}
               </button>

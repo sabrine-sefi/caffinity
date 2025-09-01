@@ -37,6 +37,7 @@ export default function ProductCard({
         "relative z-10 flex flex-col overflow-hidden transition-transform hover:scale-[1.02]",
         className
       )}
+      aria-label={`${name}, ${price} ${currency}`}
     >
       <div className="relative w-full h-48 overflow-hidden">
         <img
@@ -57,7 +58,7 @@ export default function ProductCard({
         </span>
 
         {onAction && actionLabel && (
-          <Button variant={actionVariant} onClick={onAction}>
+          <Button variant={actionVariant} onClick={onAction} aria-label={`${actionLabel} ${name}`}>
             {actionLabel}
           </Button>
         )}
