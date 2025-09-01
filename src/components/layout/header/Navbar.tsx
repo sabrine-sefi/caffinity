@@ -24,7 +24,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 w-full glass-nav text-[var(--text)]">
+    <header className="sticky top-0 w-full z-50 glass-nav text-[var(--text)]">
       <nav
         aria-label={t(locale, "a11y.labelPrincipal")}
         className="flex items-center justify-between py-3 px-4 sm:px-6 md:px-8"

@@ -23,7 +23,7 @@ export default function Button({
       type={type}
       onClick={onClick}
       className={clsx(
-        "px-4 py-2 rounded font-medium transition-colors shadow-md border-[var(--border)] text-[var(--text)]",
+        "cursor-pointer px-4 py-2 rounded font-medium transition-colors shadow-lg border-[var(--border)] text-[var(--text)]",
         variant === "primary" && "bg-[var(--primary)]",
         variant === "secondary" && "bg-[var(--surface)] ",
         className

@@ -34,7 +34,7 @@ export default function ProductCard({
     <Card
       data-id={id}
       className={clsx(
-        "relative z-[-1] flex flex-col overflow-hidden transition-transform hover:scale-[1.02]",
+        "relative z-10 flex flex-col overflow-hidden transition-transform hover:scale-[1.02]",
         className
       )}
     >

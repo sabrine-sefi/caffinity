@@ -48,7 +48,7 @@ export default function FloatingBox({ children, onClose, className }: FloatingBo
     <div
       ref={boxRef}
       className={clsx(
-        "absolute z-50 rounded-md shadow-lg overflow-hidden p-2",
+        "absolute rounded-md shadow-lg overflow-hidden p-2",
         "bg-[var(--bg)] border border-[var(--border)]",
         closingAnim ? "animate-out" : "animate-in",
         className
