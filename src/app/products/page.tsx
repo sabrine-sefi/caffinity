@@ -5,6 +5,7 @@ import { useLocale } from "../../i18n/LocaleProvider";
 import { t } from "../../i18n/i18n";
 import ProductCard from "@/components/ui/ProductCard";
 import Button from "@/components/ui/Button";
+import { useCart } from "@/context/CartContext";
 
 type Translation = {
   fr: string;
@@ -23,13 +24,13 @@ type Product = {
 };
 
 export default function ProductsPage() {
-  // current language
   const { locale } = useLocale();
+  const { addToCart } = useCart();
 
   const [products, setProducts] = useState<Product[]>([]);
   const [limit, setLimit] = useState(6);
 
-  // fetch products from API
+  // fetch products depuis API
   useEffect(() => {
     async function fetchProducts() {
       const res = await fetch("/api/products");
@@ -39,7 +40,6 @@ export default function ProductsPage() {
     fetchProducts();
   }, []);
 
-  // get 6 more
   const handleShowMore = () => {
     setLimit((prev) => prev + 6);
   };
@@ -48,20 +48,22 @@ export default function ProductsPage() {
     <div className="flex flex-col items-center flex-1 w-full p-20 gap-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl">
         {Array.isArray(products) &&
-          products.slice(0, limit).map((p) => (
-            <ProductCard
-              key={p._id}
-              id={p._id}
-              name={p.name[locale as keyof Translation]}
-              description={p.description[locale as keyof Translation]}
-              image={p.image}
-              price={p.price}
-              currency={p.currency}
-              onAction={() => alert(`Produit ajouté: ${p._id}`)} // to do: add to cart
-              actionLabel={t(locale, "cart.add")}
-              actionVariant="primary"
-            />
-          ))}
+          products
+            .slice(0, limit)
+            .map((p) => (
+              <ProductCard
+                key={p._id}
+                id={p._id}
+                name={p.name[locale as keyof Translation]}
+                description={p.description[locale as keyof Translation]}
+                image={p.image}
+                price={p.price}
+                currency={p.currency}
+                onAction={() => addToCart(p)}
+                actionLabel={t(locale, "cart.add")}
+                actionVariant="primary"
+              />
+            ))}
       </div>
 
       {limit < products.length && (

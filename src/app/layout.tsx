@@ -5,6 +5,7 @@ import Navbar from "../components/layout/header/Navbar";
 import { Livvic, Poppins, Parisienne } from "next/font/google";
 import LocaleProvider from "../i18n/LocaleProvider";
 import Footer from "@/components/layout/footer/Footer";
+import { CartProvider } from "@/context/CartContext";
 
 export const metadata: Metadata = {
   title: "CaffinitY",
@@ -43,9 +44,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div id="live-region" aria-live="polite" aria-atomic="true" className="sr-only" />
         <LocaleProvider>
           <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem={true}>
-            <Navbar />
-            <main className="flex-1 flex flex-col min-h-screen">{children}</main>
-            <Footer />
+            <CartProvider>
+              <Navbar />
+              <main className="flex-1 flex flex-col min-h-screen">{children}</main>
+              <Footer />
+            </CartProvider>
           </ThemeProvider>
         </LocaleProvider>
       </body>
