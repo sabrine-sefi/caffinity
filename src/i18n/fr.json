@@ -11,7 +11,11 @@
     "add": "Ajouter",
     "cancel": "Annuler",
     "empty": "Votre panier est vide",
-    "yourCart": "Votre panier"
+    "yourCart": "Votre panier",
+    "delete": "Supprimer",
+    "fromCart": "de votre panier",
+    "total": "Total",
+    "validate": "Valider votre panier"
   },
   "products": {
     "showMore": "Voir plus"

@@ -5,7 +5,7 @@ import { useLocale } from "../../i18n/LocaleProvider";
 import { t } from "../../i18n/i18n";
 import ProductCard from "@/components/ui/ProductCard";
 import Button from "@/components/ui/Button";
-import { useCart } from "@/context/CartContext";
+import { useCart } from "@/context/CartContext"; // on appelle le hook utilitaire sans utiliser useContext !!!
 
 type Translation = {
   fr: string;

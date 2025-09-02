@@ -8,10 +8,14 @@
   },
   "cart": {
     "cart": "Carrito",
-    "add": "Agregar",
+    "add": "Añadir",
     "cancel": "Cancelar",
     "empty": "Tu carrito está vacío",
-    "yourCart": "Tu carrito"
+    "yourCart": "Tu carrito",
+    "delete": "Eliminar",
+    "fromCart": "de tu carrito",
+    "total": "Total",
+    "validate": "Validar tu carrito"
   },
   "products": {
     "showMore": "Ver más"

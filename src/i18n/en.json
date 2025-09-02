@@ -11,8 +11,13 @@
     "add": "Add",
     "cancel": "Cancel",
     "empty": "Your cart is empty",
-    "yourCart": "Your cart"
+    "yourCart": "Your cart",
+    "delete": "Delete",
+    "fromCart": "from your cart",
+    "total": "Total",
+    "validate": "Checkout"
   },
+
   "products": {
     "showMore": "Show more"
   },
